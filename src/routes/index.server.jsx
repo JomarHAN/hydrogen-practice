@@ -9,7 +9,7 @@ export default function Home() {
   });
 
 const { data: { shop } } = data;
-
+console.log(data)
   return (
     <div className="home-page container">
         <h1>{shop.name}</h1>
