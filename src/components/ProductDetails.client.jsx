@@ -1,4 +1,5 @@
 import {
+  AddToCartButton,
   Image,
   ProductOptionsProvider,
   ProductPrice,
@@ -6,7 +7,6 @@ import {
 } from "@shopify/hydrogen";
 
 export default function ProductDetails({ product }) {
-  console.log(product);
   return (
     <ProductOptionsProvider data={product}>
       <Image
@@ -21,6 +21,8 @@ export default function ProductDetails({ product }) {
 function ProductForm({ product }) {
   const { options, selectedOptions, selectedVariant, setSelectedOption } =
     useProductOptions();
+
+  const isOutOfStock = !selectedVariant?.availableForSale || false;
   return (
     <div>
       <h1>{product.title}</h1>
@@ -60,6 +62,10 @@ function ProductForm({ product }) {
           );
         })}
       </div>
+
+      <AddToCartButton disabled={isOutOfStock} className="add-to-cart">
+        {isOutOfStock ? "Out of stock" : "Add to cart"}
+      </AddToCartButton>
 
       <div
         className="product-description"
