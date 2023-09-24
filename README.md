@@ -35,3 +35,6 @@ To run a local preview of your Hydrogen app in an environment similar to Oxygen,
 yarn build
 yarn preview
 ```
+
+Run Yarn when get Error: useLocalization.js?v=ef695d26:6 Uncaught Error: No Localization Context available:
+`yarn dev --force`
