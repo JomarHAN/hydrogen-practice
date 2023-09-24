@@ -1,10 +1,10 @@
-import { Image, Money } from "@shopify/hydrogen";
+import { Image, Link, Money } from "@shopify/hydrogen";
 
 export default function ProductCard({ product }) {
   const { price, compareAtPrice } = product.variants.nodes[0] || {};
   const isDiscounted = compareAtPrice?.amount > price?.amount;
   return (
-    <div className="product-grid-item">
+    <Link to={`/products/${product.handle}`} className="product-grid-item">
       <div className="image-container">
         <Image
           alt={product.featuredImage.altText}
@@ -22,6 +22,6 @@ export default function ProductCard({ product }) {
           />
         )}
       </div>
-    </div>
+    </Link>
   );
 }
