@@ -5,8 +5,10 @@ import {
   FileRoutes,
   ShopifyProvider,
   CartProvider,
+  Route,
 } from "@shopify/hydrogen";
 import { Suspense } from "react";
+import Layout from "./components/Layout.server";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <CartProvider>
           <Router>
             <FileRoutes />
+            <Route path="*" page={<NotFound />} />
           </Router>
         </CartProvider>
       </ShopifyProvider>
@@ -23,3 +26,13 @@ function App() {
 }
 
 export default renderHydrogen(App);
+
+function NotFound() {
+  return (
+    <Layout>
+      <div className="container">
+        <div>Page not found</div>
+      </div>
+    </Layout>
+  );
+}
