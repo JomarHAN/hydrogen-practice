@@ -35,7 +35,7 @@ export default function Layout({ children }) {
               <a href="/collections/freestyle">Freestyle</a>
             </li>
             <li>
-              <a href="#">Link 3</a>
+              <a href="/blog">Blogs</a>
             </li>
           </ul>
           <Link to="/cart" className="header-cart-link">
